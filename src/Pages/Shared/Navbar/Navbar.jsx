@@ -1,13 +1,13 @@
-import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import swal from "sweetalert";
+import 'cooltipz-css'
 import logo from '../../../assets/logo/logo.png'
+import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
 
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut } = useAuth()
 
     const navLinks = <>
         <NavLink to="/" className="text-base mr-2 font-semibold"> Home</NavLink>
@@ -75,15 +75,8 @@ const Navbar = () => {
                                     <button onClick={handleLogOut} className="bg-transparent text-white border border-white rounded font-semibold px-3 py-2 hover:bg-[#B4B307] ">Log Out</button>
                                 </div>
                             </div>
-
                                 :
                                 <div className="flex items-center gap-2">
-                                    <label >
-                                        {/* <div className="w-10 rounded-full hidden md:block">
-                                        <img src={userImg} />
-                                    </div> */}
-                                    </label>
-
                                     <Link to="/login">
                                         <button className="bg-transparent text-white border border-white rounded font-semibold px-3 py-2 hover:bg-[#B4B307] ">Log In</button>
                                     </Link>
