@@ -4,17 +4,31 @@ import swal from "sweetalert";
 import 'cooltipz-css'
 import logo from '../../../assets/logo/logo.png'
 import useAuth from "../../../Hooks/useAuth";
+import useAdmin from "../../../Hooks/useAdmin";
+import useAgent from "../../../Hooks/useAgent";
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth()
+
+    const { isAdmin } = useAdmin()
+    const { isAgent } = useAgent()
 
     const navLinks = <>
         <NavLink to="/" className="text-base mr-2 font-semibold"> Home</NavLink>
 
         <NavLink to="/allProperties" className="text-base mr-2 font-semibold"> All Properties</NavLink>
 
-        <NavLink to="/" className="text-base mr-2 font-semibold"> Dashboard</NavLink>
+        {
+            user && (
+                <NavLink
+                    to={isAdmin ? "/dashboard/adminProfile" : isAgent ? "/dashboard/agentProfile" : "/dashboard/myProfile"}
+                    className="text-base mr-2 font-semibold"
+                >
+                    Dashboard
+                </NavLink>
+            )
+        }
     </>
 
     const handleLogOut = () => {
