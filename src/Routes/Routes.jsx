@@ -17,6 +17,8 @@ import MyProfile from "../Pages/Dashboard/UserPanel/MyProfile/MyProfile";
 import Wishlist from "../Pages/Dashboard/UserPanel/Wishlist/Wishlist";
 import PropertyBought from "../Pages/Dashboard/UserPanel/PropertyBought/PropertyBought";
 import MyReview from "../Pages/Dashboard/UserPanel/MyReview/MyReview";
+import AddProperty from "../Pages/Dashboard/AgentPanel/AddProperty/AddProperty";
+
 
 const router = createBrowserRouter([
     {
@@ -66,6 +68,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/agentProfile',
                 element: <AgentProfile></AgentProfile>
+            },
+            {
+                path: '/dashboard/addProperty',
+                element: <AddProperty></AddProperty>
             },
             {
                 path: '/dashboard/myAddedProperties',

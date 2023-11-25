@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaSearch } from 'react-icons/fa';
-import { MdManageAccounts, MdOutlineRateReview, MdOutlineAddHomeWork, MdOutlineMapsHomeWork, MdDoneOutline, MdOutlineRequestPage, MdOutlineAttachMoney, MdShoppingCart, MdOutlineStarHalf } from 'react-icons/md';
+import { MdManageAccounts, MdOutlineRateReview, MdOutlineAddHomeWork, MdOutlineMapsHomeWork, MdDoneOutline, MdOutlineRequestPage, MdOutlineAttachMoney, MdShoppingCart, MdOutlineStarHalf, MdAddHomeWork } from 'react-icons/md';
 import useAdmin from "../Hooks/useAdmin";
 import useAgent from "../Hooks/useAgent";
 
@@ -20,7 +20,7 @@ const Dashboard = () => {
                                 {
                                     isAdmin ?
                                         <>
-
+                                            {/* Admin Routes */}
                                             <li className="font-bold"> <NavLink to="/dashboard/adminProfile"> <FaHome></FaHome> Admin Profile</NavLink>
                                             </li>
 
@@ -35,8 +35,11 @@ const Dashboard = () => {
                                         </>
                                         :
                                         <>
-
+                                            {/* Agent Routes */}
                                             <li className="font-bold"> <NavLink to="/dashboard/agentProfile"> <FaHome></FaHome> Agent Profile</NavLink>
+                                            </li>
+
+                                            <li className="font-bold"> <NavLink to="/dashboard/addProperty"> <MdAddHomeWork className="text-lg"></MdAddHomeWork  > Add Property</NavLink>
                                             </li>
 
                                             <li className="font-bold"> <NavLink to="/dashboard/myAddedProperties"> <MdOutlineMapsHomeWork className="text-lg"></MdOutlineMapsHomeWork > My Added Properties</NavLink>
@@ -52,7 +55,7 @@ const Dashboard = () => {
                             </>
                                 :
                                 <>
-
+                                    {/* Users Routes */}
                                     <li className="font-bold"> <NavLink to="/dashboard/myProfile"> <FaHome></FaHome> My Profile</NavLink> </li>
 
                                     <li className="font-bold"> <NavLink to="/dashboard/wishlist"> < MdShoppingCart className="text-lg"></ MdShoppingCart> Wishlist</NavLink> </li>
