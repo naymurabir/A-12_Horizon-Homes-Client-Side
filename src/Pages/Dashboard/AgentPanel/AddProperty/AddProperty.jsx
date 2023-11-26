@@ -41,6 +41,7 @@ const AddProperty = () => {
                 image: res?.data?.data?.display_url,
                 agent_name: data.agent_name,
                 agent_email: data.agent_email,
+                agent_image: user?.photoURL,
                 price_range: parseFloat(data?.price_range),
                 details: data.details,
                 status: 'pending'

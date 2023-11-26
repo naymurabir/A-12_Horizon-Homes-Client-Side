@@ -25,8 +25,8 @@ const ManageProperties = () => {
         </div>
     }
 
-    const handleVerifyProperty = id => {
-        axiosSecure.put(`/properties?id=${id}`)
+    const handleVerifyProperty = (property) => {
+        axiosSecure.put(`/properties?id=${property._id}`)
             .then(res => {
 
                 console.log(res.data);
@@ -42,6 +42,22 @@ const ManageProperties = () => {
                         color: 'white',
                         timer: 2000
                     })
+
+                    const newAllProperty = {
+                        image: property.image,
+                        title: property.title,
+                        location: property.location,
+                        agent_name: property.agent_name,
+                        agent_email: property.agent_email,
+                        agent_image: property?.agent_image,
+                        price_range: property.price_range,
+                        details: property.details,
+                        status: property.status
+                    }
+                    axiosSecure.post('/allProperties', newAllProperty)
+                        .then(res => {
+                            console.log("This property is added to All Properties:", res.data);
+                        })
                 }
             })
     }

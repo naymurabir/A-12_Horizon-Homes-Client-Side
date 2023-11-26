@@ -47,7 +47,7 @@ const ManageProperty = ({ property, index, handleVerifyProperty, handleRejectPro
                     </>
                         : <>
                             <td>
-                                <button onClick={() => handleVerifyProperty(_id)} className=' text-white  bg-[#4F79AC] text-xs px-5 py-1 rounded-sm font-semibold'> Verify</button>
+                                <button onClick={() => handleVerifyProperty(property)} className=' text-white  bg-[#4F79AC] text-xs px-5 py-1 rounded-sm font-semibold'> Verify</button>
                             </td>
                             <td>
                                 <button onClick={() => handleRejectProperty(_id)} className=' text-white  bg-[#e71515] text-xs px-5 py-1 rounded-sm font-semibold'> Reject</button>
