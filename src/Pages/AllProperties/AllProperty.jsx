@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 
 const AllProperty = ({ property }) => {
 
-    const { image, title, location, agent_name, agent_image, price_range, status } = property
+    const { _id, image, title, location, agent_name, agent_image, price_range, status } = property
 
     return (
         <div>
-            <div className="card card-compact bg-base-100 shadow-md mt-10">
-                <img className="h-[200px] w-full" src={image} alt="Shoes" />
+            <div className="card card-compact bg-base-100 shadow-xl mt-10">
+                <img className="h-[200px] w-full rounded" src={image} alt="Shoes" />
                 <div className="card-body">
                     <h2 title={title} className='text-xl font-bold truncate  text-center text-[#1e66be]'> {title} </h2>
                     <hr />
-                    <h2 className="font-bold text-center">Agent Info.</h2>
+                    <h2 className="font-bold text-center">Agent Information.</h2>
                     <div className="flex items-center justify-between">
                         <img className="h-14 w-14 rounded-full" src={agent_image} alt="" />
                         <div>
@@ -33,7 +34,9 @@ const AllProperty = ({ property }) => {
                         <h3 className='text-base text-[#1e66be] font-semibold'> Price Range:</h3>
                         <p className="font-bold">${price_range}</p>
                     </div>
-                    <button className="bg-[#1e66be] text-white px-2 py-1 rounded font-semibold w-full">Details</button>
+                    <Link to={`/propertyDetails/${_id}`}>
+                        <button className="bg-[#1e66be] text-white px-2 py-1 rounded font-semibold w-full">Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
