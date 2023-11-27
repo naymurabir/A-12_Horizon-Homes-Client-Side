@@ -1,13 +1,25 @@
 
-import useAllProperties from "../../Hooks/useAllProperties";
+import { useEffect, useState } from "react";
+// import useAllProperties from "../../Hooks/useAllProperties";
 
 import AllProperty from "./AllProperty";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const AllProperties = () => {
 
-    const { allProperties } = useAllProperties()
+    // const { allProperties } = useAllProperties()
+    const axiosPublic = useAxiosPublic()
+    const [allProperties, setAllProperties] = useState([])
+    const [searchProperty, setSearchJob] = useState('')
 
+    useEffect(() => {
+        (async () => {
+            const { data } = await axiosPublic.get('/allProperties')
+            const matchedData = data.filter(singleData => singleData.title.toLowerCase().includes(searchProperty.toLowerCase()));
+            setAllProperties(matchedData)
+        })()
+    }, [axiosPublic, searchProperty])
 
 
     return (
@@ -24,6 +36,19 @@ const AllProperties = () => {
                         <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
                         <span className="inline-block w-3 h-1 ml-1 bg-blue-500 rounded-full"></span>
                         <span className="inline-block w-1 h-1 ml-1 bg-blue-500 rounded-full"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div className="mt-10">
+
+                        <h2 className="text-center font-bold my-3 text-2xl text-[#113e75]">Search Your Desired Property</h2>
+
+                        <div className="w-10/12 lg:w-[50%] mx-auto">
+                            <div className="flex items-center flex-col md:flex-row gap-2 md:gap-0">
+                                <input onChange={(e) => setSearchJob(e.target.value)} name="search" type="text" placeholder="Search your job..." className="input input-bordered input-primary w-full bg-transparent focus:outline-0 font-semibold" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -5,20 +5,20 @@ import { SwiperSlide } from 'swiper/react';
 import { Swiper } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const LatestUserReviews = () => {
 
-    const axiosSecure = useAxiosSecure()
+    const axiosPublic = useAxiosPublic()
     const [latestReviews, setLatestReviews] = useState([])
 
     useEffect(() => {
         (async () => {
-            const { data } = await axiosSecure.get('/latestReviews')
+            const { data } = await axiosPublic.get('/latestReviews')
             setLatestReviews(data)
         })()
-    }, [axiosSecure])
+    }, [axiosPublic])
     console.log(latestReviews);
     return (
 
@@ -47,7 +47,7 @@ const LatestUserReviews = () => {
                                 <div className="px-10 md:px-16 lg:px-20 flex flex-col items-center my-8 lg:my-4">
                                     <p className="text-black text-center text-base lg:py-3 font-bold">{review.review_description}</p>
                                     <h2 className="text-[#0e3361] font-bold text-lg">{review.title}</h2>
-                                    <img className='w-20 h-20 rounded-full' src={review.reviewer_image} alt="" />
+                                    <img className='w-20 h-20 rounded-full my-2' src={review.reviewer_image} alt="" />
                                     <h2 className='font-bold'>{review.agent_name}</h2>
                                     <p className='font-bold'>{review.review_date}</p>
                                 </div>
