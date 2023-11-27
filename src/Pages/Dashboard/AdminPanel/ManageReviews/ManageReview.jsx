@@ -10,7 +10,7 @@ const ManageReview = ({ review, handleDeleteReview }) => {
                 <div className="card-body">
                     <h2 className='text-xl font-bold  text-center text-[#1e66be]'> { } </h2>
 
-                    <div className="flex items-center gap-2">
+                    <div>
                         <h3 className='text-base font-semibold text-[#1e66be]'>Email:</h3>
                         <p className="font-bold">{email}</p>
                     </div>
@@ -19,12 +19,12 @@ const ManageReview = ({ review, handleDeleteReview }) => {
                         <p className="font-bold">{review_date}</p>
                     </div>
 
-                    <div className="">
+                    <div>
                         <h3 className='text-base text-[#1e66be] font-semibold'> Reviewer Name:</h3>
                         <p className="font-bold">{reviewer_name}</p>
                     </div>
 
-                    <div className="">
+                    <div >
                         <h3 className='text-base text-[#1e66be] font-semibold'> Review:</h3>
                         <p className="font-bold">{review_description.slice(0, 100)
                         }</p>
