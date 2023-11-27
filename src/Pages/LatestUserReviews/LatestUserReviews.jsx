@@ -19,7 +19,7 @@ const LatestUserReviews = () => {
             setLatestReviews(data)
         })()
     }, [axiosPublic])
-    console.log(latestReviews);
+
     return (
 
         <div className="max-w-screen-xl mx-auto px-2 md:px-10 lg:px-20">

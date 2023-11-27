@@ -22,6 +22,8 @@ import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails";
 import UpdateProperty from "../Pages/Dashboard/AgentPanel/UpdateProperty/UpdateProperty";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import LatestUserReviews from "../Pages/LatestUserReviews/LatestUserReviews";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
+import AgentRoute from "../PrivateRoutes/AgentRoute";
 
 
 const router = createBrowserRouter([
@@ -63,45 +65,45 @@ const router = createBrowserRouter([
             //Admin routes
             {
                 path: '/dashboard/adminProfile',
-                element: <AdminProfile></AdminProfile>
+                element: <AdminRoute><AdminProfile></AdminProfile> </AdminRoute>
             },
             {
                 path: '/dashboard/manageProperties',
-                element: <ManageProperties></ManageProperties>
+                element: <AdminRoute><ManageProperties></ManageProperties> </AdminRoute>
             },
             {
                 path: '/dashboard/manageReviews',
-                element: <ManageReviews></ManageReviews>
+                element: <AdminRoute><ManageReviews></ManageReviews> </AdminRoute>
             },
             {
                 path: '/dashboard/manageUsers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers> </AdminRoute>
             },
             //Agents Routes
             {
                 path: '/dashboard/agentProfile',
-                element: <AgentProfile></AgentProfile>
+                element: <AgentRoute><AgentProfile></AgentProfile></AgentRoute>
             },
             {
                 path: '/dashboard/addProperty',
-                element: <AddProperty></AddProperty>
+                element: <AgentRoute><AddProperty></AddProperty> </AgentRoute>
             },
             {
                 path: '/dashboard/myAddedProperties',
-                element: <MyAddedProperties></MyAddedProperties>
+                element: <AgentRoute><MyAddedProperties></MyAddedProperties></AgentRoute>
             },
             {
                 path: '/dashboard/updateProperty/:id',
-                element: <UpdateProperty></UpdateProperty>,
+                element: <AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/updateProperty/${params.id}`)
             },
             {
                 path: '/dashboard/mySoldProperties',
-                element: <MySoldProperties></MySoldProperties>
+                element: <AgentRoute><MySoldProperties></MySoldProperties></AgentRoute>
             },
             {
                 path: '/dashboard/requestedProperties',
-                element: <RequestedProperties></RequestedProperties>
+                element: <AgentRoute><RequestedProperties></RequestedProperties></AgentRoute>
             },
             //Users Routes
             {

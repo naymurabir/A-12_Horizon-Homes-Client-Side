@@ -13,7 +13,7 @@ const PropertyDetails = () => {
 
     const [review, setReview] = useState([])
 
-    const { image, title, location, details, agent_name, agent_email, agent_image, price_range, status } = property
+    const { image, title, location, details, agent_name, email, agent_image, price_range, status } = property
 
     useEffect(() => {
         if (title) {
@@ -31,7 +31,7 @@ const PropertyDetails = () => {
         location: property.location,
         details: property.details,
         agent_name: property.agent_name,
-        agent_email: property.agent_email,
+        email: email,
         agent_image: property.agent_image,
         price_range: property.price_range,
         status: property.status
@@ -85,7 +85,7 @@ const PropertyDetails = () => {
                             </div>
                             <div className="text-center">
                                 <h2 className="text-xl font-bold ">{agent_name}</h2>
-                                <h3 className="text-sm font-semibold ">{agent_email}</h3>
+                                <h3 className="text-sm font-semibold ">{email}</h3>
                             </div>
                         </div>
                         <h2 className="className='text-2xl md:text-3xl lg:text-4xl font-bold text-[#0e3361]">{title}</h2>

@@ -48,7 +48,7 @@ const ManageProperties = () => {
                         title: property.title,
                         location: property.location,
                         agent_name: property.agent_name,
-                        agent_email: property.agent_email,
+                        email: property.email,
                         agent_image: property?.agent_image,
                         price_range: property.price_range,
                         details: property.details,
