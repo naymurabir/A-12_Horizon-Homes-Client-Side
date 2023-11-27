@@ -9,7 +9,6 @@ const useUsers = () => {
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
-            console.log(res);
             return await res.data
         }
     })

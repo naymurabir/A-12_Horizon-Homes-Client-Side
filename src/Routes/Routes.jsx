@@ -20,6 +20,7 @@ import MyReview from "../Pages/Dashboard/UserPanel/MyReview/MyReview";
 import AddProperty from "../Pages/Dashboard/AgentPanel/AddProperty/AddProperty";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails";
 import UpdateProperty from "../Pages/Dashboard/AgentPanel/UpdateProperty/UpdateProperty";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -33,11 +34,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allProperties',
-                element: <AllProperties></AllProperties>
+                element: <PrivateRoutes> <AllProperties></AllProperties> </PrivateRoutes>
             },
             {
                 path: '/propertyDetails/:id',
-                element: <PropertyDetails></PropertyDetails>,
+                element: <PrivateRoutes> <PropertyDetails></PropertyDetails> </PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/propertyDetails/${params.id}`)
             },
             {
