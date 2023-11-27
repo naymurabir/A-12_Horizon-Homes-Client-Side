@@ -1,10 +1,14 @@
+
 import useAllProperties from "../../Hooks/useAllProperties";
+
 import AllProperty from "./AllProperty";
 
 
 const AllProperties = () => {
 
     const { allProperties } = useAllProperties()
+
+
 
     return (
         <div>
@@ -25,7 +29,7 @@ const AllProperties = () => {
 
                 <div className="w-full md:w-10/12 lg:w-9/12 mx-auto px-2 md:px-2  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {
-                        allProperties.map(property => <AllProperty key={property._id} property={property}></AllProperty>)
+                        allProperties.map(property => <AllProperty key={property._id} property={property} ></AllProperty>)
                     }
                 </div>
 

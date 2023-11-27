@@ -1,6 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import ReviewsSection from "../ReviewsSection/ReviewsSection";
+import { useEffect, useState } from "react";
+
 
 const PropertyDetails = () => {
 
@@ -8,9 +11,18 @@ const PropertyDetails = () => {
 
     const axiosPublic = useAxiosPublic()
 
+    const [review, setReview] = useState([])
+
     const { image, title, location, details, agent_name, agent_email, agent_image, price_range, status } = property
 
-
+    useEffect(() => {
+        if (title) {
+            (async () => {
+                const { data } = await axiosPublic.get(`/reviews/${title}`)
+                setReview(data)
+            })()
+        }
+    }, [title, axiosPublic])
     const wishlistProperty = {
         image: property.image,
         title: property.title,
@@ -101,7 +113,21 @@ const PropertyDetails = () => {
 
                 </div>
 
+                <div className="text-center lg:w-3/4 mx-auto">
+                    <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-800">Property Reviews</h1>
+                    <hr className="my-3" />
+
+                    <p> Reviews of all of our satisfied clients. Make your dream fulfill with us.</p>
+
+                    <div className="mt-2">
+                        <span className="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-3 h-1 ml-1 bg-blue-500 rounded-full"></span>
+                        <span className="inline-block w-1 h-1 ml-1 bg-blue-500 rounded-full"></span>
+                    </div>
+                </div>
+
             </div>
+            <ReviewsSection review={review} property={property}></ReviewsSection>
         </div>
     );
 };

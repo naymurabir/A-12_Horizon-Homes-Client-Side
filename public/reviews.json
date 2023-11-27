@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Excellent Service!",
+        "agent_name": "John Smith",
+        "review_time": "2023-11-26 10:30am",
+        "review_description": "I had a great experience working with John Smith. He was knowledgeable, professional, and helped me find the perfect home. I highly recommend his services."
+    },
+    {
+        "title": "Top-notch Agent",
+        "agent_name": "Emily Johnson",
+        "review_time": "2023-11-25 2:15pm",
+        "review_description": "Emily Johnson went above and beyond to assist me in selling my property. Her attention to detail and excellent communication skills made the process smooth and stress-free. Thank you, Emily!"
+    },
+    {
+        "title": "Exceptional Guidance",
+        "agent_name": "Michael Brown",
+        "review_time": "2023-11-24 11:45am",
+        "review_description": "Michael Brown provided exceptional guidance throughout the home-buying process. He was patient, understanding, and always available to answer my questions. I'm grateful for his expertise."
+    },
+    {
+        "title": "Smooth Transaction",
+        "agent_name": "Sarah Davis",
+        "review_time": "2023-11-23 9:00am",
+        "review_description": "Sarah Davis made the entire selling process smooth and efficient. Her market knowledge and negotiation skills ensured a successful transaction. I highly recommend her services to anyone in need of a real estate agent."
+    },
+    {
+        "title": "Responsive and Professional",
+        "agent_name": "Alex Rodriguez",
+        "review_time": "2023-11-22 4:20pm",
+        "review_description": "Alex Rodriguez was highly responsive and professional. He listened to my preferences and worked tirelessly to find a property that met all my criteria. I'm extremely satisfied with his services."
+    }
+]
