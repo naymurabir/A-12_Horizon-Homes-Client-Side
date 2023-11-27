@@ -8,7 +8,7 @@ const useReviews = () => {
     const { user } = useAuth()
 
     const { data: reviews, isPending, refetch } = useQuery({
-        queryKey: ['reviews'],
+        queryKey: ['reviews', user?.email],
         queryFn: async () => {
             const { data } = await axiosPublic.get(`/reviews?email=${user?.email}`)
             return data

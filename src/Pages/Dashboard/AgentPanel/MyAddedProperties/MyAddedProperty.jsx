@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
 
 const MyAddedProperty = ({ myProperty, handleDeleteProperty }) => {
 
     const { _id, title, location, image, agent_name, agent_image, price_range, status } = myProperty
+
+
 
     return (
         <div>
@@ -34,10 +37,13 @@ const MyAddedProperty = ({ myProperty, handleDeleteProperty }) => {
                         <p className="font-bold">${price_range}</p>
                     </div>
 
-                    <div className="flex flex-col md:flex-row gap-2">
-                        <button className="bg-[#1e66be] text-white px-2 py-1 rounded font-semibold w-full">Update</button>
+                    <div className="">
 
-                        <button onClick={() => handleDeleteProperty(_id)} className="bg-[#d11515] text-white px-2 py-1 rounded font-semibold w-full">Delete</button>
+                        <Link to={`/dashboard/updateProperty/${_id}`}>
+                            <button className="bg-[#1e66be] text-white px-2 py-1 rounded font-semibold w-full">Update</button>
+                        </Link>
+
+                        <button onClick={() => handleDeleteProperty(_id)} className="bg-[#d11515] text-white px-2 py-1 rounded font-semibold w-full mt-2">Delete</button>
 
                     </div>
 

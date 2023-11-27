@@ -55,7 +55,7 @@ const ReviewsSection = ({ property, review }) => {
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                     <div >
                         {
-                            review?.map((review) => <SwiperSlide key={review.index}>
+                            review?.map((review) => <SwiperSlide key={review._id}>
 
                                 <div className="px-10 md:px-16 lg:px-20 flex flex-col items-center my-8 lg:my-4">
                                     <p className="text-black text-center text-base lg:py-3 font-bold">{review.review_description}</p>

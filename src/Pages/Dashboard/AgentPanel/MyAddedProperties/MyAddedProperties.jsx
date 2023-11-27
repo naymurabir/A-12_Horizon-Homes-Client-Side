@@ -68,7 +68,7 @@ const MyAddedProperties = () => {
 
             <div className="w-full px-2 md:px-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
-                    myAddedProperties.map(myProperty => <MyAddedProperty key={myProperty._id} myProperty={myProperty} handleDeleteProperty={handleDeleteProperty} ></MyAddedProperty>)
+                    myAddedProperties?.map(myProperty => <MyAddedProperty key={myProperty._id} myProperty={myProperty} handleDeleteProperty={handleDeleteProperty} ></MyAddedProperty>)
                 }
             </div>
         </div>

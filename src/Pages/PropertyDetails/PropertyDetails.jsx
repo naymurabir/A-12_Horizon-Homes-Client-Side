@@ -23,6 +23,8 @@ const PropertyDetails = () => {
             })()
         }
     }, [title, axiosPublic])
+
+
     const wishlistProperty = {
         image: property.image,
         title: property.title,

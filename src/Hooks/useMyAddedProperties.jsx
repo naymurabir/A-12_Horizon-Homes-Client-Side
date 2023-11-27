@@ -8,7 +8,7 @@ const useMyAddedProperties = () => {
     const { user } = useAuth()
 
     const { data: myAddedProperties, isPending, refetch } = useQuery({
-        queryKey: ['myAddedProperties'],
+        queryKey: ['myAddedProperties', user?.email],
         queryFn: async () => {
             const { data } = await axiosPublic.get(`/myAddedProperties?email=${user?.email}`)
             return data
