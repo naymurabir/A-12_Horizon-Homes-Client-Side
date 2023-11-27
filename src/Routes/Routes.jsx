@@ -21,6 +21,7 @@ import AddProperty from "../Pages/Dashboard/AgentPanel/AddProperty/AddProperty";
 import PropertyDetails from "../Pages/PropertyDetails/PropertyDetails";
 import UpdateProperty from "../Pages/Dashboard/AgentPanel/UpdateProperty/UpdateProperty";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import LatestUserReviews from "../Pages/LatestUserReviews/LatestUserReviews";
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                 path: '/propertyDetails/:id',
                 element: <PrivateRoutes> <PropertyDetails></PropertyDetails> </PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/propertyDetails/${params.id}`)
+            },
+            {
+                path: '/latestReviews',
+                element: <LatestUserReviews></LatestUserReviews>
             },
             {
                 path: '/login',

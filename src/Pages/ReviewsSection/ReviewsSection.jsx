@@ -69,6 +69,7 @@ const ReviewsSection = ({ property, review }) => {
 
                 </Swiper>
             </div>
+
             <div className='flex justify-center mb-5'>
                 <button onClick={() => document.getElementById('my_modal_4').showModal()} className='text-white bg-[#0e3361] px-5 py-1 rounded mt-2'> <label htmlFor="my_modal_6" className="font-semibold">Add a Review</label></button>
                 <dialog id="my_modal_4" className="modal">

@@ -1,6 +1,7 @@
 import Advertisements from "../Advertisements/Advertisements";
 import Banner from "../Banner/Banner";
 import { Helmet } from 'react-helmet-async';
+import LatestUserReviews from "../LatestUserReviews/LatestUserReviews";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <Advertisements></Advertisements>
+            <LatestUserReviews></LatestUserReviews>
         </div>
     );
 };
