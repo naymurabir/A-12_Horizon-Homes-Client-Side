@@ -3,12 +3,13 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import ReviewsSection from "../ReviewsSection/ReviewsSection";
 import { useEffect, useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 
 const PropertyDetails = () => {
 
     const property = useLoaderData()
-
+    const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
 
     const [review, setReview] = useState([])
@@ -31,7 +32,8 @@ const PropertyDetails = () => {
         location: property.location,
         details: property.details,
         agent_name: property.agent_name,
-        email: email,
+        agent_email: property.email,
+        email: user?.email,
         agent_image: property.agent_image,
         price_range: property.price_range,
         status: property.status
@@ -45,7 +47,7 @@ const PropertyDetails = () => {
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: "Your Property has been added to Wishlists",
+                        title: "Property has been added to your Wishlists",
                         showConfirmButton: false,
                         timer: 2000
                     });
@@ -99,7 +101,7 @@ const PropertyDetails = () => {
 
                         <div className="flex gap-3 items-center">
                             <h3 className='text-xl text-[#0e3361]  font-bold'> Price Range:</h3>
-                            <p className="font-semibold"> ${price_range}</p>
+                            <p className="font-semibold"> ${price_range.min}-{price_range.max}</p>
                         </div>
 
                         <div className="flex gap-3 items-center">

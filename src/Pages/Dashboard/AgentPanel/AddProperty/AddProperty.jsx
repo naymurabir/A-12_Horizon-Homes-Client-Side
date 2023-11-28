@@ -42,7 +42,10 @@ const AddProperty = () => {
                 agent_name: data.agent_name,
                 email: data.agent_email,
                 agent_image: user?.photoURL,
-                price_range: parseFloat(data?.price_range),
+                price_range: {
+                    min: parseFloat(data?.min_price),
+                    max: parseFloat(data?.max_price),
+                },
                 details: data.details,
                 status: 'pending'
 
@@ -108,11 +111,27 @@ const AddProperty = () => {
                     </div>
 
                     <div className="flex justify-center items-center flex-col md:flex-row gap-5 mt-3">
-                        <div className="form-control w-full max-w-xs">
+                        {/* <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text font-semibold ">Price Range</span>
                             </label>
                             <input {...register("price_range")} type="number" name="price_range" placeholder="Price..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                        </div> */}
+
+                        <div className="flex justify-center items-center flex-col md:flex-row gap-5">
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text font-semibold ">Min Price</span>
+                                </label>
+                                <input {...register("min_price")} type="number" name="min_price" placeholder="Min Price..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                            </div>
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text font-semibold ">Max Price</span>
+                                </label>
+                                <input {...register("max_price")} type="number" name="max_price" placeholder="Max Price..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                            </div>
                         </div>
 
                         <div className="form-control w-full my-3">

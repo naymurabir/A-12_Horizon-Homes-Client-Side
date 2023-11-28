@@ -24,6 +24,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import LatestUserReviews from "../Pages/LatestUserReviews/LatestUserReviews";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import AgentRoute from "../PrivateRoutes/AgentRoute";
+import MakeOfferPage from "../Pages/Dashboard/UserPanel/MakeOfferPage/MakeOfferPage";
 
 
 const router = createBrowserRouter([
@@ -121,6 +122,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myReview',
                 element: <MyReview></MyReview>
+            },
+            {
+                path: '/dashboard/wishlist/makeOffer/:id',
+                element: <MakeOfferPage></MakeOfferPage>,
+                loader: ({ params }) => fetch(`http://localhost:5000/makeOffer/${params.id}`)
             }
         ]
     }

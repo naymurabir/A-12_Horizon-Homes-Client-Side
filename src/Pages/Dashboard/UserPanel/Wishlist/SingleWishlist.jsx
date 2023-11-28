@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const SingleWishlist = ({ wishlist, handleDeleteProperty }) => {
 
@@ -32,10 +33,12 @@ const SingleWishlist = ({ wishlist, handleDeleteProperty }) => {
                     </div>
                     <div className="flex items-center gap-4">
                         <h3 className='text-base text-[#1e66be] font-semibold'> Price Range:</h3>
-                        <p className="font-bold">${price_range}</p>
+                        <p className="font-bold">${price_range.min}-{price_range.max}</p>
                     </div>
 
-                    <button className="bg-[#1e66be] text-white px-2 py-1 rounded font-semibold w-full">Make an Offer</button>
+                    <Link to={`/dashboard/wishlist/makeOffer/${_id}`}>
+                        <button className="bg-[#1e66be] text-white px-2 py-1 rounded font-semibold w-full">Make an Offer</button>
+                    </Link>
 
                     <button onClick={() => handleDeleteProperty(_id)} className="bg-[#d11515] text-white px-2 py-1 rounded font-semibold w-full">Remove</button>
 

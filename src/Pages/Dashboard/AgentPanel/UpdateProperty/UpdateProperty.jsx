@@ -26,7 +26,24 @@ const UpdateProperty = () => {
     const onSubmit = async (data) => {
         setPropertyItemLoading(true)
 
-        axiosPublic.put(`/updateProperty/${id}`, data)
+        const propertyUpdate = {
+            title: data.title,
+            location: data.location,
+            image: data.image,
+            agent_name: data.agent_name,
+            email: data.agent_email,
+            agent_image: user?.photoURL,
+            price_range: {
+                min: parseFloat(data?.min_price),
+                max: parseFloat(data?.max_price),
+            },
+            details: data.details,
+            status: loadedProperty.status
+
+        }
+        console.log(propertyUpdate);
+
+        axiosPublic.put(`/updateProperty/${id}`, propertyUpdate)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
@@ -45,7 +62,7 @@ const UpdateProperty = () => {
     }
 
     return (
-        <div>
+        <div className='max-w-screen-xl mx-auto px-2 md:px-10 lg:px-20 mt-10'>
             <h2 className="text-2xl font-bold text-center mb-4 text-[#4F79AC]">Update A Property</h2>
 
             <div className="bg-white border-2 border-[#4F79AC] p-2 md:p-5 lg:p-10">
@@ -80,24 +97,41 @@ const UpdateProperty = () => {
                             <label className="label">
                                 <span className="label-text font-semibold ">Agent Email</span>
                             </label>
-                            <input defaultValue={user?.email} readOnly {...register("email")} type="text" name="agent_email" placeholder="Agent Email..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                            <input defaultValue={user?.email} readOnly {...register("agent_email")} type="text" name="agent_email" placeholder="Agent Email..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
                         </div>
-
                     </div>
 
-                    <div className="flex justify-center items-center flex-col md:flex-row gap-5 mt-3">
-                        <div className="form-control w-full max-w-xs">
+                    <div className="flex justify-between items-center flex-col md:flex-row gap-5 mt-3">
+
+                        {/* <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text font-semibold ">Price Range</span>
                             </label>
                             <input defaultValue={loadedProperty.price_range} {...register("price_range")} type="number" name="price_range" placeholder="Price..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                        </div> */}
+
+                        <div className="flex justify-center items-center flex-col md:flex-row gap-5">
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text font-semibold ">Min Price</span>
+                                </label>
+                                <input defaultValue={loadedProperty.price_range.min} {...register("min_price")} type="number" name="min_price" placeholder="Min Price..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                            </div>
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text font-semibold ">Max Price</span>
+                                </label>
+                                <input defaultValue={loadedProperty.price_range.max} {...register("max_price")} type="number" name="max_price" placeholder="Max Price..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                            </div>
                         </div>
+
 
                         <div className="form-control w-full my-3">
                             <label className="label">
                                 <span className="label-text font-semibold ">Image</span>
                             </label>
-                            <input defaultValue={loadedProperty.image} {...register("image")} type="text" name="image" placeholder="Price..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
+                            <input defaultValue={loadedProperty.image} {...register("image")} type="text" name="image" placeholder="Image..." className="input input-bordered w-full text-sm max-w-xs focus:outline-0" />
 
                         </div>
                     </div>

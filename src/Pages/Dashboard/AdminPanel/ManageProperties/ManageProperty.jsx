@@ -1,7 +1,7 @@
 
 const ManageProperty = ({ property, index, handleVerifyProperty, handleRejectProperty }) => {
 
-    const { _id, title, location, agent_name, agent_email, price_range, status } = property;
+    const { _id, title, location, agent_name, email, price_range, status } = property;
 
     return (
         <>
@@ -21,11 +21,11 @@ const ManageProperty = ({ property, index, handleVerifyProperty, handleRejectPro
                 </td>
 
                 <td>
-                    <h2 className='text-sm '>{agent_email}</h2>
+                    <h2 className='text-sm '>{email}</h2>
                 </td>
 
                 <td>
-                    <h2 className='text-sm'>{price_range}</h2>
+                    <h2 className='text-sm'>${price_range.min}-{price_range.max}</h2>
                 </td>
 
                 {

@@ -22,7 +22,7 @@ const Advertisement = ({ property }) => {
                     </div>
                     <div className="flex items-center gap-4">
                         <h3 className='text-base text-[#1e66be] font-semibold'> Price Range:</h3>
-                        <p className="font-bold">${price_range}</p>
+                        <p className="font-bold">${price_range.min}-{price_range.max}</p>
                     </div>
                     <Link to={`/propertyDetails/${_id}`}>
                         <button className="bg-[#1e66be] text-white px-2 py-1 rounded font-semibold w-full">Details</button>
