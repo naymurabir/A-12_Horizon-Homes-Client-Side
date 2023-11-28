@@ -11,7 +11,7 @@ const useRequestedProperties = () => {
         queryKey: ['requestedProperties', user?.email],
         queryFn: async () => {
             const { data } = await axiosPublic.get(`/requestedProperties?email=${user?.email}`)
-            console.log(data);
+            // console.log(data);
             return data
         }
     })

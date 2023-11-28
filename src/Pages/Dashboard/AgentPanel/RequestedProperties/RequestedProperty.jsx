@@ -1,7 +1,7 @@
 
-const RequestedProperty = ({ requestedProperty, index }) => {
+const RequestedProperty = ({ requestedProperty, index, handleMakeAccept, handleMakeReject }) => {
 
-    const { title, location, buyer_email, buyer_name, offered_amount, status } = requestedProperty
+    const { _id, title, location, buyer_email, buyer_name, offered_amount, status } = requestedProperty
 
     return (
         <>
@@ -26,18 +26,12 @@ const RequestedProperty = ({ requestedProperty, index }) => {
                 </td>
 
                 <td>
-                    <h2 className='text-sm '>{offered_amount}</h2>
+                    <h2 className='text-sm '>${offered_amount}</h2>
                 </td>
-
-                <td>
-                    <h2 className='text-sm '>{status}</h2>
-                </td>
-
-
 
                 {
-                    status === 'verified' || status === 'rejected' ? <>
-                        {status === 'verified' ?
+                    status === 'accepted' || status === 'rejected' ? <>
+                        {status === 'accepted' ?
                             <td>
                                 <h2 className='text-white text-center bg-green-500 text-xs px-1 py-1 rounded-sm font-semibold'> Accepted</h2>
                             </td>
@@ -55,10 +49,10 @@ const RequestedProperty = ({ requestedProperty, index }) => {
                         :
                         <>
                             <td>
-                                <button className=' text-white  bg-[#4F79AC] text-xs px-5 py-1 rounded-sm font-semibold'> Accept</button>
+                                <button onClick={() => handleMakeAccept(_id)} className=' text-white  bg-[#4F79AC] text-xs px-5 py-1 rounded-sm font-semibold'> Accept</button>
                             </td>
                             <td>
-                                <button className=' text-white  bg-[#e71515] text-xs px-5 py-1 rounded-sm font-semibold'> Reject</button>
+                                <button onClick={() => handleMakeReject(_id)} className=' text-white  bg-[#e71515] text-xs px-5 py-1 rounded-sm font-semibold'> Reject</button>
                             </td>
                         </>
                 }

@@ -1,10 +1,14 @@
 import { ThreeDots } from "react-loader-spinner";
 import useRequestedProperties from "../../../../Hooks/useRequestedProperties"
 import RequestedProperty from "./RequestedProperty";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const RequestedProperties = () => {
 
-    const { requestedProperties, isPending } = useRequestedProperties()
+    const axiosPublic = useAxiosPublic()
+
+    const { requestedProperties, isPending, refetch } = useRequestedProperties()
 
     if (isPending) {
         return <div className="text-center flex justify-center items-center">
@@ -19,6 +23,46 @@ const RequestedProperties = () => {
                 visible={true}
             />
         </div>
+    }
+
+    const handleMakeAccept = (id) => {
+        axiosPublic.put(`/requestedProperty?id=${id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: "This Offer has been accepted!",
+                        showConfirmButton: false,
+                        background: '#343436',
+                        heightAuto: '100px',
+                        color: 'white',
+                        timer: 2000
+                    })
+                }
+            })
+    }
+
+    const handleMakeReject = id => {
+        axiosPublic.put(`/requestedProperty/reject?id=${id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: "This Offer has been rejected!",
+                        showConfirmButton: false,
+                        background: '#343436',
+                        heightAuto: '100px',
+                        color: 'white',
+                        timer: 2000
+                    })
+                }
+            })
     }
 
     return (
@@ -39,14 +83,14 @@ const RequestedProperties = () => {
                                         <th>Buyer Email</th>
                                         <th>Buyer Name</th>
                                         <th>Offered Price</th>
-                                        <th>Status</th>
                                         <th>Accept Button</th>
                                         <th>Reject Button</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        requestedProperties.map((requestedProperty, index) => <RequestedProperty key={requestedProperty._id} requestedProperty={requestedProperty} index={index}></RequestedProperty>)
+                                        requestedProperties.map((requestedProperty, index) => <RequestedProperty key={requestedProperty._id} requestedProperty={requestedProperty} index={index}
+                                            handleMakeAccept={handleMakeAccept} handleMakeReject={handleMakeReject}></RequestedProperty>)
                                     }
                                 </tbody>
                             </table>
