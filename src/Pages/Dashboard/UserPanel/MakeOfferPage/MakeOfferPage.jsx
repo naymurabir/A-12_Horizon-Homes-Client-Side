@@ -39,6 +39,7 @@ const MakeOfferPage = () => {
                             showConfirmButton: false,
                             timer: 2000
                         });
+                        e.target.reset()
                     }
                 })
         } else {
