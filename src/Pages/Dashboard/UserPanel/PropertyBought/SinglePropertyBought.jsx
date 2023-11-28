@@ -1,17 +1,18 @@
 
 const SinglePropertyBought = ({ propertyBought }) => {
 
-    console.log(propertyBought);
+
     const { image, location, title, agent_name, offered_amount, status } = propertyBought
 
     return (
         <div>
-            <div className="card card-compact bg-base-100 shadow-xl mt-10">
-                <img className="h-[200px] w-full rounded" src={image} alt="Shoes" />
+            <div className=" card card-compact bg-base-100 shadow-xl mt-10">
+                <div className="relative">
+                    <img className="h-[200px] w-full rounded" src={image} alt="Shoes" />
+                </div>
                 <div className="card-body">
                     <h2 title={title} className='text-xl font-bold truncate  text-center text-[#1e66be]'> {title} </h2>
                     <hr />
-                    <h2 className="font-bold text-center">Agent Information.</h2>
                     <div className="flex items-center justify-between">
                         <div>
                             <h2 className='text-base font-semibold text-[#1e66be]'> Offered Amount:</h2>
@@ -33,6 +34,13 @@ const SinglePropertyBought = ({ propertyBought }) => {
                             <h3 className='text-base text-[#1e66be] font-semibold'> Status:</h3>
                             <p className="font-bold">{status}</p>
                         </div>
+                    </div>
+
+                    <div>
+                        {
+                            status === "accepted" ? <button className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'> Pay </button> : ''
+                        }
+
                     </div>
 
 

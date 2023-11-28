@@ -5,7 +5,6 @@ import SinglePropertyBought from "./SinglePropertyBought";
 const PropertyBought = () => {
 
     const { propertiesBaught, isPending } = usePropertiesBaught()
-    console.log(propertiesBaught);
 
     if (isPending) {
         return <div className="text-center flex justify-center items-center">
