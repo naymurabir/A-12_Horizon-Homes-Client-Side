@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 const SinglePropertyBought = ({ propertyBought }) => {
 
 
-    const { image, location, title, agent_name, offered_amount, status } = propertyBought
+    const { _id, image, location, title, agent_name, offered_amount, status } = propertyBought
 
     return (
         <div>
@@ -39,9 +40,10 @@ const SinglePropertyBought = ({ propertyBought }) => {
                     <div>
                         {
                             status === "accepted" ?
-                                <button className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'> Pay </button> : ''
+                                <Link to={`/dashboard/makePayment/${_id}`}>
+                                    <button className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'> <span>Pay</span> </button>
+                                </Link> : ''
                         }
-
                     </div>
 
 

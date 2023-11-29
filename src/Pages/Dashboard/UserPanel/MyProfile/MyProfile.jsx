@@ -8,7 +8,6 @@ const MyProfile = () => {
     const { users } = useUsers()
 
     const userRole = users.find(user1 => user1.email === user?.email)
-    console.log(userRole);
 
     return (
         <div className="max-w-screen-xl mx-auto px-2 md:px-10 lg:px-20">

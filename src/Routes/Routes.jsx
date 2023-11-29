@@ -26,6 +26,7 @@ import AdminRoute from "../PrivateRoutes/AdminRoute";
 import AgentRoute from "../PrivateRoutes/AgentRoute";
 import MakeOfferPage from "../Pages/Dashboard/UserPanel/MakeOfferPage/MakeOfferPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import MakePayment from "../Pages/Dashboard/UserPanel/MakePayment/MakePayment";
 
 
 const router = createBrowserRouter([
@@ -130,6 +131,11 @@ const router = createBrowserRouter([
                 path: '/dashboard/wishlist/makeOffer/:id',
                 element: <MakeOfferPage></MakeOfferPage>,
                 loader: ({ params }) => fetch(`http://localhost:5000/makeOffer/${params.id}`)
+            },
+            // Payments
+            {
+                path: '/dashboard/makePayment/:id',
+                element: <MakePayment></MakePayment>
             }
         ]
     }
