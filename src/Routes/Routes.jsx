@@ -25,12 +25,14 @@ import LatestUserReviews from "../Pages/LatestUserReviews/LatestUserReviews";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import AgentRoute from "../PrivateRoutes/AgentRoute";
 import MakeOfferPage from "../Pages/Dashboard/UserPanel/MakeOfferPage/MakeOfferPage";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -62,6 +64,7 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <Dashboard></Dashboard>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             //Admin routes
             {

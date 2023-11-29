@@ -46,7 +46,7 @@ const AllProperties = () => {
 
                         <div className="w-10/12 lg:w-[50%] mx-auto">
                             <div className="flex items-center flex-col md:flex-row gap-2 md:gap-0">
-                                <input onChange={(e) => setSearchJob(e.target.value)} name="search" type="text" placeholder="Search your job..." className="input input-bordered input-primary w-full bg-transparent focus:outline-0 font-semibold" />
+                                <input onChange={(e) => setSearchJob(e.target.value)} name="search" type="text" placeholder="Search property..." className="input input-bordered input-primary w-full bg-transparent focus:outline-0 font-semibold" />
                             </div>
                         </div>
                     </div>

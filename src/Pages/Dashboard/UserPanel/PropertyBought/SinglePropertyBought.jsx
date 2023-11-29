@@ -38,7 +38,8 @@ const SinglePropertyBought = ({ propertyBought }) => {
 
                     <div>
                         {
-                            status === "accepted" ? <button className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'> Pay </button> : ''
+                            status === "accepted" ?
+                                <button className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'> Pay </button> : ''
                         }
 
                     </div>
