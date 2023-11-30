@@ -3,9 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const ManageUser = ({ user, index, handleDeleteUser, handleMakeAdmin, handleMakeAgent, handleMakeFraud }) => {
 
-    const { name, email, role } = user
-
-    console.log(role);
+    const { name, email } = user
 
     return (
         <>
@@ -38,7 +36,7 @@ const ManageUser = ({ user, index, handleDeleteUser, handleMakeAdmin, handleMake
                         {
                             user.role === 'fraud' ? <button className="bg-red-500 text-xs  px-6 py-1 rounded"> Fraud </button> : <button onClick={() => handleMakeFraud(user)} className=' text-white  bg-[#4F79AC] text-xs px-1 py-1 rounded-sm font-semibold'> Mark as Fraud </button>
                         }
-                    </td> : <td> {user.role === 'fraud' ? <button className="bg-red-500 text-xs text-white px-6 py-1 rounded"> Fraud </button> : ""}</td>
+                    </td> : <td> {user.role === 'fraud' ? <span className="bg-red-500 text-xs text-white px-6 py-1 rounded"> Fraud </span> : ""}</td>
                 }
 
                 <td>
