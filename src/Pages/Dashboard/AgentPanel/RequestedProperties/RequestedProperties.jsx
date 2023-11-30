@@ -83,7 +83,7 @@ const RequestedProperties = () => {
                                         <th>Buyer Email</th>
                                         <th>Buyer Name</th>
                                         <th>Offered Price</th>
-                                        <th>Status</th>
+                                        {/* <th>Status</th> */}
                                         <th>Accept Button</th>
                                         <th>Reject Button</th>
                                     </tr>

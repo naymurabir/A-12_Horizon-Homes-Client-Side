@@ -29,9 +29,9 @@ const RequestedProperty = ({ requestedProperty, index, handleMakeAccept, handleM
                     <h2 className='text-sm'>${offered_amount}</h2>
                 </td>
 
-                <td>
+                {/* <td>
                     <h2 className='text-sm font-semibold'>{status}</h2>
-                </td>
+                </td> */}
 
                 {
                     status === 'accepted' || status === 'rejected' ? <>

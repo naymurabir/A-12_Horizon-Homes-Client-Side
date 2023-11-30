@@ -3,7 +3,9 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const ManageUser = ({ user, index, handleDeleteUser, handleMakeAdmin, handleMakeAgent }) => {
 
-    const { name, email } = user
+    const { name, email, role } = user
+
+    console.log(role);
 
     return (
         <>
@@ -28,14 +30,16 @@ const ManageUser = ({ user, index, handleDeleteUser, handleMakeAdmin, handleMake
 
                 <td>
                     {
-                        user.role === 'agent' ? <button className="bg-green-500 text-xs text-white px-6 py-1 rounded"> Agent </button> : <button onClick={() => handleMakeAgent(user)} className=' text-white  bg-[#4F79AC] text-xs px-1 py-1 rounded-sm font-semibold'> Make Agent </button>
+                        user.role === 'agent' ? <button className="bg-orange-500 text-xs text-white px-6 py-1 rounded"> Agent </button> : <button onClick={() => handleMakeAgent(user)} className=' text-white  bg-[#4F79AC] text-xs px-1 py-1 rounded-sm font-semibold'> Make Agent </button>
                     }
                 </td>
-                <td>
-                    {
-                        user.role === 'fraud' ? <button className="bg-red-500 text-xs text-white px-6 py-1 rounded"> Fraud </button> : <button className=' text-white  bg-[#4F79AC] text-xs px-1 py-1 rounded-sm font-semibold'> Mark as Fraud </button>
-                    }
-                </td>
+                {
+                    user.role === "agent" ? <td>
+                        {
+                            user.role === 'fraud' ? <button className="bg-red-500 text-xs text-white px-6 py-1 rounded"> Fraud </button> : <button className=' text-white  bg-[#4F79AC] text-xs px-1 py-1 rounded-sm font-semibold'> Mark as Fraud </button>
+                        }
+                    </td> : <td></td>
+                }
 
                 <td>
                     <button onClick={() => handleDeleteUser(user)} className=' text-white py-1 px-2 bg-red-500 text-xl rounded-sm font-semibold'> <AiOutlineDelete></AiOutlineDelete> </button>
