@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAuth from "../../../../Hooks/useAuth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import usePropertiesBaught from "../../../../Hooks/usePropertiesBaught";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -11,6 +11,7 @@ import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 
 const CheckoutForm = () => {
 
+    const navigate = useNavigate()
     const { user } = useAuth()
     const [error, setError] = useState('')
     const stripe = useStripe();
@@ -83,6 +84,7 @@ const CheckoutForm = () => {
 
                 // Save payment method into DB
                 const payment = {
+                    id: booking._id,
                     sold_price: booking.offered_amount,
                     buyer_name: booking.buyer_name,
                     buyer_email: booking.buyer_email,
@@ -99,20 +101,21 @@ const CheckoutForm = () => {
                 console.log("Payment Saved", res.data);
                 refetch()
                 if (res.data?.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Your payment is done! You have successfully bought the property!',
-                        showConfirmButton: false,
-                        background: '#343436',
-                        heightAuto: '100px',
-                        color: 'white',
-                        timer: 2000
-                    })
-
                     axiosPublic.put(`/requestedProperty/bought?id=${id}`)
                         .then(res => {
                             console.log(res.data);
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your payment is done! You have successfully bought the property!',
+                                showConfirmButton: false,
+                                background: '#343436',
+                                heightAuto: '100px',
+                                color: 'white',
+                                timer: 2000
+                            })
+                            navigate("/dashboard/propertyBought")
+
                         })
                 }
             }

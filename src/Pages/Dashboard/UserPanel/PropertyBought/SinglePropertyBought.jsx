@@ -1,9 +1,31 @@
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import { useEffect, useState } from "react";
 
 const SinglePropertyBought = ({ propertyBought }) => {
 
+    const axiosPublic = useAxiosPublic();
 
-    const { _id, image, location, title, agent_name, offered_amount, status } = propertyBought
+    const [loadedProperty, setLoadedProperty] = useState([]);
+    console.log("Transaction ID:", loadedProperty.transactionId);
+
+    const { transactionId } = loadedProperty
+
+    const { _id, image, location, title, agent_name, offered_amount, status } = propertyBought;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data } = await axiosPublic.get(`/boughtProperty/${_id}`);
+                setLoadedProperty(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, [axiosPublic, setLoadedProperty, _id]);
+
 
     return (
         <div>
@@ -38,15 +60,21 @@ const SinglePropertyBought = ({ propertyBought }) => {
                     </div>
 
                     <div>
-                        {
-                            status === "accepted" ?
+                        {status === "accepted" ? (
+                            transactionId ? (
+                                <p className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'>{transactionId}</p>
+                            ) : (
+
                                 <Link to={`/dashboard/makePayment/${_id}`}>
-                                    <button className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'> <span>Pay</span> </button>
-                                </Link> : ''
-                        }
+                                    <button className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'>
+                                        <span>Pay</span>
+                                    </button>
+                                </Link>
+                            )
+                        ) : status === "bought" ? (
+                            <p className='absolute top-1.5 right-0 text-white bg-[#350cca] px-5 py-1 rounded'>{transactionId}</p>
+                        ) : null}
                     </div>
-
-
                 </div>
             </div>
         </div>
