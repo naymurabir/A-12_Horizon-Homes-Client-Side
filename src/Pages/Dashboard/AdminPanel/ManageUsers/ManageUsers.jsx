@@ -75,6 +75,32 @@ const ManageUsers = () => {
             });
     }
 
+    const handleMakeFraud = (user) => {
+        console.log("Frauddddd");
+        swal({
+            title: "Are you sure?",
+            text: "Do you want to make agent to fraud?",
+            icon: "success",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axiosSecure.patch(`/users/fraud/${user._id}`)
+                        .then(res => {
+                            refetch()
+                            if (res.data.modifiedCount > 0)
+                                swal("The agent has been made to fraud successfully.", {
+                                    icon: "success",
+                                });
+                        })
+
+                } else {
+                    swal("Not modified!");
+                }
+            });
+    }
+
     const handleDeleteUser = (user) => {
         swal({
             title: "Are you sure?",
@@ -123,7 +149,7 @@ const ManageUsers = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        users.map((user, index) => <ManageUser key={user._id} user={user} index={index} handleDeleteUser={handleDeleteUser} handleMakeAdmin={handleMakeAdmin} handleMakeAgent={handleMakeAgent}></ManageUser>)
+                                        users.map((user, index) => <ManageUser key={user._id} user={user} index={index} handleDeleteUser={handleDeleteUser} handleMakeAdmin={handleMakeAdmin} handleMakeAgent={handleMakeAgent} handleMakeFraud={handleMakeFraud}></ManageUser>)
                                     }
                                 </tbody>
                             </table>
