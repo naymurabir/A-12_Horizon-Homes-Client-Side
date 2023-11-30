@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             {
                 path: '/propertyDetails/:id',
                 element: <PrivateRoutes> <PropertyDetails></PropertyDetails> </PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/propertyDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://horizon-homes-react-server.vercel.app/propertyDetails/${params.id}`)
             },
             {
                 path: '/latestReviews',
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/updateProperty/:id',
                 element: <AgentRoute><UpdateProperty></UpdateProperty></AgentRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/updateProperty/${params.id}`)
+                loader: ({ params }) => fetch(`https://horizon-homes-react-server.vercel.app/updateProperty/${params.id}`)
             },
             {
                 path: '/dashboard/mySoldProperties',
@@ -130,7 +130,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/wishlist/makeOffer/:id',
                 element: <MakeOfferPage></MakeOfferPage>,
-                loader: ({ params }) => fetch(`http://localhost:5000/makeOffer/${params.id}`)
+                loader: ({ params }) => fetch(`https://horizon-homes-react-server.vercel.app/makeOffer/${params.id}`)
             },
             // Payments
             {

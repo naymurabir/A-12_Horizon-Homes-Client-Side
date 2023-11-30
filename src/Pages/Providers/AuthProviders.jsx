@@ -34,23 +34,8 @@ const AuthProviders = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log("Observing on", currentUser);
-            const userEmail = currentUser?.email || user?.email
-            const loggedUser = { email: userEmail }
             setUser(currentUser)
             setLoading(false)
-
-            if (currentUser) {
-                axiosPublic.post('/jwt', loggedUser)
-                    .then(res => {
-                        console.log(res.data);
-                    })
-            }
-            else {
-                axiosPublic.post('/logout', loggedUser)
-                    .then(res => {
-                        console.log(res.data);
-                    })
-            }
         })
 
         return () => {

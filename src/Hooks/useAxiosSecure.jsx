@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
-    withCredentials: true
+    baseURL: 'https://horizon-homes-react-server.vercel.app',
 })
 
 const useAxiosSecure = () => {
@@ -23,8 +22,8 @@ const useAxiosSecure = () => {
             return response;
         }, async function (error) {
             if (error.response.status === 401 || error.response.status === 403) {
-                await logOut()
-                console.log('log out')
+                // await logOut()
+                console.log('log out', error)
                 navigate('/login')
             }
             return Promise.reject(error);
