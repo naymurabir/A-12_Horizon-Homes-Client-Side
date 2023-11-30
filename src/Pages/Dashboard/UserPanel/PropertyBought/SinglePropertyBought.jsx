@@ -7,7 +7,7 @@ const SinglePropertyBought = ({ propertyBought }) => {
     const axiosPublic = useAxiosPublic();
 
     const [loadedProperty, setLoadedProperty] = useState([]);
-    console.log("Transaction ID:", loadedProperty.transactionId);
+    // console.log("Transaction ID:", loadedProperty.transactionId);
 
     const { transactionId } = loadedProperty
 
