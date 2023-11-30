@@ -26,7 +26,11 @@ const RequestedProperty = ({ requestedProperty, index, handleMakeAccept, handleM
                 </td>
 
                 <td>
-                    <h2 className='text-sm '>${offered_amount}</h2>
+                    <h2 className='text-sm'>${offered_amount}</h2>
+                </td>
+
+                <td>
+                    <h2 className='text-sm font-semibold'>{status}</h2>
                 </td>
 
                 {
