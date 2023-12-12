@@ -51,7 +51,21 @@ const WhyChooseUs = () => {
 
                     </div>
                 </div>
+
             </div>
+
+            <div className="lg:w-1/2 mx-auto text-center my-10">
+                <h2 className="text-2xl md:text-3xl font-bold">Properties</h2>
+                <p className="text-black mt-2">Properties at a glance!</p>
+            </div>
+
+            <iframe
+                className="w-full mt-12 h-64 md:h-[450px] rounded-xl overflow-hidden"
+                src="https://www.youtube.com/embed/y9j-BL5ocW8"
+                frameBorder="0"
+                allow="autoplay; fullscreen"
+                allowFullScreen=""
+            ></iframe>
 
         </div>
     );
