@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import LatestUserReviews from "../LatestUserReviews/LatestUserReviews";
 import MeetOurAgents from "../MeetOurAgents/MeetOurAgents";
 import OurServices from "../OurServices/OurServices";
+import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
             <LatestUserReviews></LatestUserReviews>
             <MeetOurAgents></MeetOurAgents>
             <OurServices></OurServices>
+            <WhyChooseUs></WhyChooseUs>
         </div>
     );
 };
