@@ -3,6 +3,7 @@ import useReviews from "../../../../Hooks/useReviews";
 import MySingleReview from "./MySingleReview";
 import swal from "sweetalert";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import { Helmet } from 'react-helmet-async';
 
 const MyReview = () => {
     const axiosPublic = useAxiosPublic()
@@ -51,6 +52,13 @@ const MyReview = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <title>
+                    My Review
+                </title>
+            </Helmet>
+
             <div className="pt-5 px-2 md:px-2">
 
                 <div className="text-center lg:w-3/4 mx-auto">

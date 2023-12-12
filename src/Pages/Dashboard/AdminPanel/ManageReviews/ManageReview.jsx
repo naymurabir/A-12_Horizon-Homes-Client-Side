@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 
 const ManageReview = ({ review, handleDeleteReview }) => {
 
@@ -5,6 +6,11 @@ const ManageReview = ({ review, handleDeleteReview }) => {
 
     return (
         <div>
+            <Helmet>
+                <title>
+                    Manage Reviews
+                </title>
+            </Helmet>
             <div className="card card-compact bg-base-100 shadow-xl mt-10">
                 <img className="h-[150px] w-full rounded object-cover" src={reviewer_image} alt="Reviews" />
                 <div className="card-body">

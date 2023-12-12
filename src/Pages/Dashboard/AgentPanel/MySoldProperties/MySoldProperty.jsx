@@ -1,9 +1,14 @@
-
+import { Helmet } from 'react-helmet-async';
 const MySoldProperty = ({ soldProperty, index }) => {
 
     const { title, location, buyer_email, buyer_name, sold_price } = soldProperty
     return (
         <>
+            <Helmet>
+                <title>
+                    Sold Properties
+                </title>
+            </Helmet>
             <tr>
                 <td className="text-sm font-semibold">
                     {index}

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../../../Hooks/useAuth";
+import { Helmet } from 'react-helmet-async';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
@@ -70,6 +71,12 @@ const AddProperty = () => {
 
     return (
         <div className='max-w-screen-xl mx-auto px-2 md:px-10 lg:px-20 mt-10'>
+
+            <Helmet>
+                <title>
+                    Add Property
+                </title>
+            </Helmet>
 
             <h2 className="text-2xl font-bold text-center mb-4 text-[#4F79AC]">Add A Property</h2>
 

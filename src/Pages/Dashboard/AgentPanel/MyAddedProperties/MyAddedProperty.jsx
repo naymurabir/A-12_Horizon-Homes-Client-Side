@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 const MyAddedProperty = ({ myProperty, handleDeleteProperty }) => {
 
@@ -8,6 +9,11 @@ const MyAddedProperty = ({ myProperty, handleDeleteProperty }) => {
 
     return (
         <div>
+            <Helmet>
+                <title>
+                    Added Properties
+                </title>
+            </Helmet>
             <div className="card card-compact bg-base-100 shadow-xl mt-10">
                 <img className="h-[200px] w-full rounded" src={image} alt="Shoes" />
                 <div className="card-body">

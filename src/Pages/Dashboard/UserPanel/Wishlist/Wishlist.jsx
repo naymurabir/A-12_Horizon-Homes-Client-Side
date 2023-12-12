@@ -3,6 +3,7 @@ import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import useWishlists from "../../../../Hooks/useWishlists";
 import SingleWishlist from "./SingleWishlist";
 import { ThreeDots } from "react-loader-spinner";
+import { Helmet } from 'react-helmet-async';
 
 const Wishlist = () => {
     const axiosPublic = useAxiosPublic()
@@ -51,6 +52,13 @@ const Wishlist = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <title>
+                    Wishlist
+                </title>
+            </Helmet>
+
             <div className="py-5 text-center lg:w-3/4 mx-auto">
                 <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-800">Wishlist Properties
                 </h1>

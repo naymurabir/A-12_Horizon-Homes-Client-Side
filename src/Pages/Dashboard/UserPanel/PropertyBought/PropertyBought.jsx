@@ -1,6 +1,7 @@
 import { ThreeDots } from "react-loader-spinner";
 import usePropertiesBaught from "../../../../Hooks/usePropertiesBaught";
 import SinglePropertyBought from "./SinglePropertyBought";
+import { Helmet } from 'react-helmet-async';
 
 const PropertyBought = () => {
 
@@ -24,6 +25,12 @@ const PropertyBought = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <title>
+                    Property Bought
+                </title>
+            </Helmet>
 
             <div className="pt-5 text-center lg:w-3/4 mx-auto">
                 <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-800">Bought Properties</h1>

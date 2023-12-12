@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 
 const RequestedProperty = ({ requestedProperty, index, handleMakeAccept, handleMakeReject }) => {
 
@@ -5,6 +6,11 @@ const RequestedProperty = ({ requestedProperty, index, handleMakeAccept, handleM
 
     return (
         <>
+            <Helmet>
+                <title>
+                    Requested Properties
+                </title>
+            </Helmet>
             <tr>
                 <td className="text-sm font-semibold">
                     {index}

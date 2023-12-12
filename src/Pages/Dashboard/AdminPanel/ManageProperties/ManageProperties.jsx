@@ -4,6 +4,7 @@ import ManageProperty from "./ManageProperty";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
+
 const ManageProperties = () => {
 
     const axiosSecure = useAxiosSecure()

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import ReviewsSection from "../ReviewsSection/ReviewsSection";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from 'react-helmet-async';
 
 
 const PropertyDetails = () => {
@@ -57,6 +58,13 @@ const PropertyDetails = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <title>
+                    Property Details
+                </title>
+            </Helmet>s
+
             <div className="pt-20 w-full md:w-10/12 lg:w-10/12 mx-auto px-2 md:px-2">
 
                 <div className="text-center lg:w-3/4 mx-auto">

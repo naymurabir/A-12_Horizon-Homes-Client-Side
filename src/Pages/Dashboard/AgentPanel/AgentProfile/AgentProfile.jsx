@@ -1,5 +1,6 @@
 import useAuth from "../../../../Hooks/useAuth";
 import useUsers from "../../../../Hooks/useUsers";
+import { Helmet } from 'react-helmet-async';
 
 const AgentProfile = () => {
     const { user } = useAuth()
@@ -11,6 +12,11 @@ const AgentProfile = () => {
 
     return (
         <div className="max-w-screen-xl mx-auto px-2 md:px-10 lg:px-20">
+            <Helmet>
+                <title>
+                    Agent Profile
+                </title>
+            </Helmet>
             <div>
                 <div className="p-12 mt-10 justify-center items-center sm:flex sm:space-x-6 bg-[#0060efb7] shadow-xl transform transition-transform hover:scale-105 rounded-md text-white">
                     <div className="flex w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">

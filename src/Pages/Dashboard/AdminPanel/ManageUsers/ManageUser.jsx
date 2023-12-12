@@ -1,4 +1,5 @@
 import { AiOutlineDelete } from "react-icons/ai";
+import { Helmet } from 'react-helmet-async';
 
 
 const ManageUser = ({ user, index, handleDeleteUser, handleMakeAdmin, handleMakeAgent, handleMakeFraud }) => {
@@ -7,6 +8,11 @@ const ManageUser = ({ user, index, handleDeleteUser, handleMakeAdmin, handleMake
 
     return (
         <>
+            <Helmet>
+                <title>
+                    Manage Users
+                </title>
+            </Helmet>
             <tr>
                 <td className="text-sm font-semibold">
                     {index}

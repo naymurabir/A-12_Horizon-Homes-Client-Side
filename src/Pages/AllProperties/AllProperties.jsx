@@ -1,4 +1,4 @@
-
+import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from "react";
 // import useAllProperties from "../../Hooks/useAllProperties";
 
@@ -24,6 +24,11 @@ const AllProperties = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>
+                    All Properties
+                </title>
+            </Helmet>
             <div className="pt-20">
                 <div className="text-center lg:w-3/4 mx-auto">
                     <h2 className="text-xl font-bold text-[#4F79AC]">Properties</h2>
